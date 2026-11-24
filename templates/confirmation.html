@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Order Confirmed | Mini Shop{% endblock %}
+{% block content %}
+<section class="confirmation-card">
+    <div class="success-icon">✓</div>
+    <p class="eyebrow">ORDER COMPLETE</p>
+    <h1>Thank you for your order!</h1>
+    <p class="success-message">Your order has been placed successfully!</p>
+
+    <div class="order-number">ORDER #{{ order.id }}</div>
+    <div class="receipt">
+        <div><span>Customer name</span><strong>{{ order.customer_name }}</strong></div>
+        <div><span>Product</span><strong>{{ order.product_name }}</strong></div>
+        <div><span>Quantity</span><strong>{{ order.quantity }}</strong></div>
+        <div><span>Price per item</span><strong>₹{{ "%.2f"|format(order.price) }}</strong></div>
+        <div class="total-row"><span>Total amount</span><strong>₹{{ "%.2f"|format(total) }}</strong></div>
+    </div>
+    <a class="button" href="{{ url_for('home') }}">Continue shopping</a>
+</section>
+{% endblock %}

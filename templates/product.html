@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }} | Mini Shop{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ url_for('home') }}">← Back to products</a>
+<section class="detail-card">
+    <div class="detail-icon">🛍️</div>
+    <div class="detail-info">
+        <p class="eyebrow">PRODUCT #{{ product.id }}</p>
+        <h1>{{ product.name }}</h1>
+        <p class="detail-price">₹{{ "%.2f"|format(product.price) }}</p>
+        <p class="description">{{ product.description }}</p>
+        <a class="button" href="{{ url_for('order', id=product.id) }}">Order now</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Not Found | Mini Shop{% endblock %}
+{% block content %}
+<section class="empty-state">
+    <div class="not-found-icon">🔎</div>
+    <h1>Oops! Not found</h1>
+    <p>{{ message }}</p>
+    <a class="button" href="{{ url_for('home') }}">Go to home</a>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Home | Mini Shop{% endblock %}
+{% block content %}
+<section class="hero">
+    <p class="eyebrow">WELCOME TO MINISHOP</p>
+    <h1>Find your everyday essentials.</h1>
+    <p>Simple shopping for stationery and school essentials.</p>
+</section>
+
+<div class="section-heading">
+    <div><p class="eyebrow">OUR COLLECTION</p><h2>Available Products</h2></div>
+    <span class="product-count">{{ products|length }} products</span>
+</div>
+
+{% if products %}
+<div class="product-grid">
+    {% for product in products %}
+    <article class="product-card">
+        <div class="product-icon">
+            {% if product.name == "Notebook" %}📓
+            {% elif product.name == "Pen" %}🖊️
+            {% elif product.name == "School Bag" %}🎒
+            {% elif product.name == "Water Bottle" %}🧴
+            {% else %}✏️{% endif %}
+        </div>
+        <p class="product-id">PRODUCT #{{ product.id }}</p>
+        <h3>{{ product.name }}</h3>
+        <p class="price">₹{{ "%.2f"|format(product.price) }}</p>
+        <a class="button button-outline" href="{{ url_for('product_details', id=product.id) }}">View details</a>
+    </article>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state"><h3>No products available</h3><p>Please check back later.</p></div>
+{% endif %}
+{% endblock %}
