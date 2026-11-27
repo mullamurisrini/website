@@ -14,6 +14,12 @@ def get_db_connection():
     return connection
 
 
+
+
+
+
+
+
 def init_db():
     connection = get_db_connection()
     connection.executescript("""
