@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = "change-this-secret-key"
 DATABASE = Path(__file__).with_name("shop.db")
 
-
+#this is a new comment
 def get_db_connection():
     connection = sqlite3.connect(DATABASE)
     connection.row_factory = sqlite3.Row
